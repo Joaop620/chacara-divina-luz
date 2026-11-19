@@ -1,16 +1,19 @@
-/* Divina Luz
-   Direção: caderno impresso. Papel de jornal, tinta preta e uma única cor de
-   impressão, o vermelho de urucum. O sol é um círculo chapado que volta em
-   vários pontos da página. Sem cantos arredondados, sem sombras, sem ícones. */
+/* Casa de Jesus e Lar de Frei Manuel · Chácara Divina Luz
+   Direção: caderno impresso com as cores da mata. Papel cru, tinta escura,
+   verdes de folha e um sol ocre chapado que volta em vários pontos da página.
+   Sem cantos arredondados, sem sombras, sem ícones. */
 
 :root {
-  --papel: #ece6da;
-  --papel-claro: #f4f0e7;
-  --tinta: #161412;
-  --tinta-2: #4a443d;
-  --urucum: #c4361b;
-  --regra: rgba(22, 20, 18, 0.85);
-  --regra-fina: rgba(22, 20, 18, 0.18);
+  --papel: #ebe7d9;
+  --papel-claro: #f3f1e7;
+  --tinta: #1b2119;
+  --tinta-2: #4b5145;
+  --folha: #4d6b3a;
+  --sol: #d6a23e;
+  --mata: #22342a;
+  --musgo: #3e5a3c;
+  --regra: rgba(27, 33, 25, 0.85);
+  --regra-fina: rgba(27, 33, 25, 0.18);
 
   --titulo: "Gloock", "Times New Roman", serif;
   --texto: "Newsreader", Georgia, serif;
@@ -42,7 +45,7 @@ img, video { display: block; max-width: 100%; }
 a { color: inherit; }
 p { margin: 0; }
 h1, h2, h3 { margin: 0; font-weight: 400; }
-::selection { background: var(--urucum); color: var(--papel); }
+::selection { background: var(--folha); color: var(--papel); }
 
 .pular { position: absolute; left: 1rem; top: -4rem; z-index: 400; background: var(--tinta); color: var(--papel); padding: 0.5rem 1rem; font-family: var(--mono); font-size: 0.8rem; text-decoration: none; }
 .pular:focus { top: 1rem; }
@@ -61,10 +64,10 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 .menu { display: flex; gap: 1.75rem; }
 .menu a {
   font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase;
-  text-decoration: none; padding: 0.25rem 0; background: linear-gradient(var(--urucum), var(--urucum)) 0 100% / 0 2px no-repeat;
+  text-decoration: none; padding: 0.25rem 0; background: linear-gradient(var(--folha), var(--folha)) 0 100% / 0 2px no-repeat;
   transition: background-size 0.3s var(--ease);
 }
-.menu a span { color: var(--urucum); margin-right: 0.25rem; }
+.menu a span { color: var(--folha); margin-right: 0.25rem; }
 .menu a:hover { background-size: 100% 2px; }
 .menu-botao {
   display: none; border: 1px solid var(--tinta); background: transparent; color: var(--tinta);
@@ -89,13 +92,13 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 .capa__pre {
   position: relative; z-index: 1; margin-bottom: 0.9rem;
   font-family: var(--mono); font-size: 0.875rem; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.4;
-  color: var(--urucum);
+  color: var(--folha);
 }
 .capa__palavra { position: relative; z-index: 1; display: block; }
 .capa__palavra--1 { margin-left: -0.03em; }
 .capa__palavra--2 { align-self: flex-end; text-align: right; margin-top: 0.04em; mix-blend-mode: multiply; }
 .capa__sol {
-  position: absolute; z-index: 0; border-radius: 50%; background: var(--urucum);
+  position: absolute; z-index: 0; border-radius: 50%; background: var(--sol);
   width: 1.55em; height: 1.55em; right: 0.35em; top: 0.12em;
   animation: nasce 1.6s var(--ease) both 0.2s;
 }
@@ -112,7 +115,7 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   border: 1px solid var(--tinta); text-decoration: none; font-size: 1.5rem;
   transition: background 0.25s ease, color 0.25s ease;
 }
-.capa__seta:hover { background: var(--urucum); border-color: var(--urucum); color: var(--papel); }
+.capa__seta:hover { background: var(--folha); border-color: var(--folha); color: var(--papel); }
 
 /* ---------- Capítulos ---------- */
 .capitulo { padding: clamp(3.5rem, 8vw, 7rem) var(--margem); position: relative; }
@@ -120,13 +123,20 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   display: grid; grid-template-columns: minmax(4rem, 1fr) 11fr; align-items: end; gap: 1rem;
   border-top: 2px solid currentColor; padding-top: 1rem; margin-bottom: clamp(2.5rem, 6vw, 5rem);
 }
-.capitulo__num { font-family: var(--mono); font-size: 0.875rem; color: var(--urucum); align-self: start; padding-top: 0.5rem; }
+.capitulo__num { font-family: var(--mono); font-size: 0.875rem; color: var(--folha); align-self: start; padding-top: 0.5rem; }
 .capitulo__cab h2 { font-family: var(--titulo); font-size: clamp(3.5rem, 11vw, 10rem); line-height: 0.85; letter-spacing: -0.04em; }
 
-.capitulo--tinta { background: var(--tinta); color: var(--papel); }
-.capitulo--tinta .capitulo__num { color: #e5654a; }
-.capitulo--urucum { background: var(--urucum); color: var(--tinta); }
-.capitulo--urucum .capitulo__num { color: var(--papel); }
+.capitulo--tinta { background: var(--mata); color: var(--papel); }
+.capitulo--tinta .capitulo__num { color: var(--sol); }
+.capitulo--mata { background: var(--musgo); color: var(--papel); }
+.capitulo--mata .capitulo__num { color: var(--sol); }
+
+/* Samambaia em traço, ao fundo das seções verdes */
+.folhagem { position: absolute; pointer-events: none; color: var(--papel); opacity: 0.13; }
+.capitulo--mata { overflow: hidden; }
+.capitulo--mata > *:not(.folhagem) { position: relative; }
+.capitulo--mata .folhagem { right: -4%; top: 6%; height: 92%; width: auto; transform: rotate(14deg); }
+.folhagem--rodape { left: -6%; bottom: -12%; height: 120%; width: auto; transform: scaleX(-1) rotate(10deg); opacity: 0.1; }
 
 /* I. A casa */
 .casa { display: grid; grid-template-columns: repeat(12, 1fr); gap: 2.5rem 2rem; }
@@ -135,22 +145,22 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 .capitular { color: var(--tinta); }
 .capitular::first-letter {
   float: left; font-family: var(--titulo); font-size: 5.4em; line-height: 0.78;
-  padding: 0.06em 0.08em 0 0; color: var(--urucum);
+  padding: 0.06em 0.08em 0 0; color: var(--folha);
 }
 .video { grid-column: 7 / span 6; margin: 0; }
-.video__quadro { position: relative; aspect-ratio: 4 / 5; background: var(--tinta); overflow: hidden; }
+.video__quadro { position: relative; aspect-ratio: 4 / 5; background: var(--mata); overflow: hidden; }
 .video video { width: 100%; height: 100%; object-fit: contain; }
 .video__aguardando {
   display: none; position: absolute; inset: 0; align-items: center; justify-content: center;
-  background: var(--tinta);
+  background: var(--mata);
 }
-.video__sol { width: 46%; aspect-ratio: 1; border-radius: 50%; background: var(--urucum); animation: pulsa 4s ease-in-out infinite; }
+.video__sol { width: 46%; aspect-ratio: 1; border-radius: 50%; background: var(--sol); animation: pulsa 4s ease-in-out infinite; }
 @keyframes pulsa { 50% { transform: scale(1.04); } }
 .video__aviso {
   position: absolute; left: 1.25rem; bottom: 1.25rem; color: var(--papel);
   font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
 }
-.video__aviso::before { content: ""; display: inline-block; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--urucum); margin-right: 0.5rem; animation: grava 1.4s steps(2) infinite; }
+.video__aviso::before { content: ""; display: inline-block; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--sol); margin-right: 0.5rem; animation: grava 1.4s steps(2) infinite; }
 @keyframes grava { 50% { opacity: 0; } }
 .video.sem-video video { visibility: hidden; }
 .video.sem-video .video__aguardando { display: flex; }
@@ -158,7 +168,7 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   display: flex; gap: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--regra); margin-top: 0.75rem;
   font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.02em; line-height: 1.5;
 }
-.video figcaption span, .foto figcaption span { color: var(--urucum); text-transform: uppercase; }
+.video figcaption span, .foto figcaption span { color: var(--folha); text-transform: uppercase; }
 
 .registro { grid-column: 2 / span 10; margin: 2rem 0 0; display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid var(--regra); }
 .registro div { padding: 1rem 1rem 0 0; border-right: 1px solid var(--regra-fina); }
@@ -171,18 +181,18 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 .tempo { list-style: none; margin: 0; padding: 0; }
 .tempo li {
   display: grid; grid-template-columns: minmax(4rem, 1fr) 5fr 6fr; gap: 1rem; align-items: baseline;
-  padding: 1.75rem 0; border-top: 1px solid rgba(236, 230, 218, 0.22);
+  padding: 1.75rem 0; border-top: 1px solid rgba(235, 231, 217, 0.22);
 }
-.tempo li:last-child { border-bottom: 1px solid rgba(236, 230, 218, 0.22); }
+.tempo li:last-child { border-bottom: 1px solid rgba(235, 231, 217, 0.22); }
 .tempo__ano {
   grid-column: 2; font-family: var(--titulo); font-size: clamp(4rem, 10vw, 9rem); line-height: 0.85; letter-spacing: -0.04em;
   transition: color 0.3s ease;
 }
-.tempo__ano--aberto { color: rgba(236, 230, 218, 0.28); }
+.tempo__ano--aberto { color: rgba(235, 231, 217, 0.28); }
 .tempo li > div { grid-column: 3; max-width: 34rem; }
-.tempo h3 { font-family: var(--mono); font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase; color: #e5654a; margin-bottom: 0.5rem; }
-.tempo p { color: rgba(236, 230, 218, 0.82); }
-.tempo li:hover .tempo__ano:not(.tempo__ano--aberto) { color: #e5654a; }
+.tempo h3 { font-family: var(--mono); font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sol); margin-bottom: 0.5rem; }
+.tempo p { color: rgba(235, 231, 217, 0.82); }
+.tempo li:hover .tempo__ano:not(.tempo__ano--aberto) { color: var(--sol); }
 
 /* III. A ajuda */
 .frase { margin: 0 0 clamp(3rem, 7vw, 6rem); padding-left: calc((100% - 11 * 2rem) / 12 + 2rem); }
@@ -192,15 +202,15 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 }
 .frase p::before { content: "“"; }
 .frase p::after { content: "”"; }
-.frase footer { margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8125rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--papel); }
+.frase footer { margin-top: 1.5rem; font-family: var(--mono); font-size: 0.8125rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sol); }
 .ajuda { display: grid; grid-template-columns: repeat(12, 1fr); gap: 2rem; }
-.ajuda__intro { grid-column: 2 / span 4; font-size: 1.375rem; line-height: 1.35; }
+.ajuda__intro { grid-column: 2 / span 4; font-size: 1.375rem; line-height: 1.35; color: rgba(235, 231, 217, 0.9); }
 .ajuda__lista { grid-column: 7 / span 6; list-style: none; margin: 0; padding: 0; counter-reset: ajuda; }
-.ajuda__lista li { counter-increment: ajuda; display: grid; grid-template-columns: 2.5rem 1fr; column-gap: 1rem; padding: 1.1rem 0; border-top: 1px solid var(--tinta); }
-.ajuda__lista li:last-child { border-bottom: 1px solid var(--tinta); }
-.ajuda__lista li::before { content: counter(ajuda, decimal-leading-zero); grid-row: span 2; font-family: var(--mono); font-size: 0.8125rem; padding-top: 0.3rem; color: var(--papel); }
+.ajuda__lista li { counter-increment: ajuda; display: grid; grid-template-columns: 2.5rem 1fr; column-gap: 1rem; padding: 1.1rem 0; border-top: 1px solid rgba(235, 231, 217, 0.35); }
+.ajuda__lista li:last-child { border-bottom: 1px solid rgba(235, 231, 217, 0.35); }
+.ajuda__lista li::before { content: counter(ajuda, decimal-leading-zero); grid-row: span 2; font-family: var(--mono); font-size: 0.8125rem; padding-top: 0.3rem; color: var(--sol); }
 .ajuda__lista h3 { font-family: var(--titulo); font-size: 1.75rem; line-height: 1.1; letter-spacing: -0.01em; }
-.ajuda__lista p { font-size: 1.0625rem; margin-top: 0.25rem; }
+.ajuda__lista p { font-size: 1.0625rem; margin-top: 0.25rem; color: rgba(235, 231, 217, 0.82); }
 
 /* IV. O lugar */
 .pranchas { display: grid; grid-template-columns: repeat(12, 1fr); gap: 3rem 2rem; align-items: start; }
@@ -228,7 +238,7 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 }
 .foto.sem-foto.foto--2 .foto__img::before, .foto.sem-foto.foto--6 .foto__img::before {
   background:
-    radial-gradient(circle at 50% 55%, var(--urucum) 0 22%, transparent 22.3%),
+    radial-gradient(circle at 50% 55%, var(--sol) 0 22%, transparent 22.3%),
     repeating-linear-gradient(-45deg, transparent 0 9px, rgba(22, 20, 18, 0.16) 9px 10px);
 }
 
@@ -239,20 +249,20 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 .visita__rua { font-family: var(--titulo); font-size: clamp(3rem, 7.5vw, 7rem); line-height: 0.9; letter-spacing: -0.035em; }
 .visita__bairro { font-family: var(--mono); font-size: 0.8125rem; letter-spacing: 0.06em; text-transform: uppercase; }
 .visita__endereco a {
-  justify-self: start; padding: 0.875rem 1.25rem; background: var(--tinta); color: var(--papel);
+  justify-self: start; padding: 0.875rem 1.25rem; background: var(--mata); color: var(--papel);
   font-family: var(--mono); font-size: 0.8125rem; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none;
   transition: background 0.25s ease;
 }
-.visita__endereco a:hover { background: var(--urucum); }
+.visita__endereco a:hover { background: var(--folha); }
 .visita__regras { grid-column: 9 / span 4; margin: 0; padding: 0; list-style: none; counter-reset: regra; }
 .visita__regras li { counter-increment: regra; padding: 0.9rem 0 0.9rem 2.25rem; border-top: 1px solid var(--regra); position: relative; font-size: 1.0625rem; line-height: 1.45; }
-.visita__regras li::before { content: counter(regra, decimal-leading-zero); position: absolute; left: 0; top: 1.05rem; font-family: var(--mono); font-size: 0.75rem; color: var(--urucum); }
+.visita__regras li::before { content: counter(regra, decimal-leading-zero); position: absolute; left: 0; top: 1.05rem; font-family: var(--mono); font-size: 0.75rem; color: var(--folha); }
 
 /* ---------- Colofão ---------- */
-.colofao { position: relative; overflow: hidden; background: var(--tinta); color: var(--papel); padding: clamp(4rem, 9vw, 8rem) var(--margem) 2rem; }
+.colofao { position: relative; overflow: hidden; background: var(--mata); color: var(--papel); padding: clamp(4rem, 9vw, 8rem) var(--margem) 2rem; }
 .colofao__sol {
-  position: absolute; left: 50%; bottom: -38vw; width: 76vw; aspect-ratio: 1; transform: translateX(-50%);
-  border-radius: 50%; background: var(--urucum);
+  position: relative; width: clamp(5rem, 9vw, 8rem); aspect-ratio: 1; margin: 0 auto clamp(2rem, 4vw, 3rem);
+  border-radius: 50%; background: var(--sol);
 }
 .colofao__titulo {
   position: relative; font-family: var(--titulo); font-size: clamp(2.75rem, 9vw, 9rem); line-height: 0.9; letter-spacing: -0.04em;
@@ -260,7 +270,7 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 }
 .colofao__grade {
   position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
-  margin-top: clamp(3rem, 7vw, 6rem); padding-top: 1rem; border-top: 1px solid rgba(236, 230, 218, 0.5);
+  margin-top: clamp(3rem, 7vw, 6rem); padding-top: 1rem; border-top: 1px solid rgba(235, 231, 217, 0.5);
   font-family: var(--mono); font-size: 0.75rem; line-height: 1.6; letter-spacing: 0.02em;
 }
 .colofao__topo {
@@ -270,13 +280,13 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 }
 
 /* ---------- Ampliar foto ---------- */
-.ampliar { position: fixed; inset: 0; z-index: 500; background: rgba(22, 20, 18, 0.96); display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1rem; padding: 2rem; }
+.ampliar { position: fixed; inset: 0; z-index: 500; background: rgba(24, 34, 27, 0.96); display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1rem; padding: 2rem; }
 .ampliar[hidden] { display: none; }
 .ampliar figure { margin: 0; text-align: center; color: var(--papel); }
 .ampliar img { max-height: 82vh; margin: 0 auto; }
 .ampliar figcaption { margin-top: 1rem; font-family: var(--mono); font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.06em; }
-.ampliar button { background: transparent; border: 1px solid rgba(236, 230, 218, 0.4); color: var(--papel); cursor: pointer; font-family: var(--mono); font-size: 0.875rem; }
-.ampliar button:hover { border-color: var(--urucum); background: var(--urucum); }
+.ampliar button { background: transparent; border: 1px solid rgba(235, 231, 217, 0.4); color: var(--papel); cursor: pointer; font-family: var(--mono); font-size: 0.875rem; }
+.ampliar button:hover { border-color: var(--folha); background: var(--folha); }
 .ampliar__seta { width: 3rem; height: 3rem; font-size: 1.25rem; }
 .ampliar__fechar { position: absolute; top: 1.25rem; right: 1.25rem; padding: 0.5rem 0.875rem; text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.75rem; }
 
@@ -288,7 +298,7 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   .revela { opacity: 1; transform: none; transition: none; }
   .capa__sol, .video__sol, .video__aviso::before { animation: none; }
 }
-:focus-visible { outline: 2px solid var(--urucum); outline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--folha); outline-offset: 3px; }
 
 /* ---------- Responsivo ---------- */
 @media (max-width: 1024px) {
@@ -342,7 +352,7 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   .tempo__ano, .tempo li > div { grid-column: 1; }
   .frase { padding-left: 0.4em; }
   .colofao__grade { grid-template-columns: 1fr; }
-  .colofao__sol { bottom: -50vw; width: 100vw; }
+  .capitulo--mata .folhagem { right: -30%; height: 60%; top: 2%; }
   .ampliar { grid-template-columns: 1fr 1fr; padding: 4rem 1rem 2rem; }
   .ampliar figure { grid-column: 1 / -1; grid-row: 1; }
   .ampliar__seta { justify-self: center; }
