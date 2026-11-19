@@ -1,11 +1,13 @@
-// Service worker: guarda o site no aparelho para abrir rápido e funcionar sem internet.
-// Troque a versão sempre que mudar arquivos importantes.
-const VERSAO = "divina-luz-v3";
+// Service worker: deixa o site abrir sem internet depois da primeira visita.
+// Estratégia "rede primeiro": sempre busca a versão mais nova e só usa a cópia
+// guardada quando não há conexão. Assim uma atualização nunca mistura arquivos
+// novos com antigos.
+const VERSAO = "divina-luz-v4";
 const ARQUIVOS = [
   "./",
   "index.html",
-  "css/style.css",
-  "js/main.js",
+  "css/style.css?v=4",
+  "js/main.js?v=4",
   "assets/img/favicon.svg",
   "assets/img/samambaia.svg",
   "assets/img/icone-192.png",
@@ -26,37 +28,22 @@ self.addEventListener("activate", (evento) => {
 
 self.addEventListener("fetch", (evento) => {
   const pedido = evento.request;
-  if (pedido.method !== "GET" || new URL(pedido.url).origin !== location.origin) return;
-  // Vídeo fica de fora do cache (é grande e usa pedidos parciais)
-  if (pedido.url.endsWith(".mp4")) return;
+  const url = new URL(pedido.url);
+  if (pedido.method !== "GET" || url.origin !== location.origin) return;
+  // Vídeo e fotos ficam de fora do cache (são grandes e o vídeo usa pedidos parciais)
+  if (/\.(mp4|jpe?g|png|webp)$/i.test(url.pathname) && !url.pathname.includes("/assets/img/")) return;
 
-  // Página: tenta a rede primeiro para sempre mostrar a versão mais nova
-  if (pedido.mode === "navigate") {
-    evento.respondWith(
-      fetch(pedido)
-        .then((resposta) => {
+  evento.respondWith(
+    fetch(pedido)
+      .then((resposta) => {
+        if (resposta.ok) {
           const copia = resposta.clone();
           caches.open(VERSAO).then((cache) => cache.put(pedido, copia));
-          return resposta;
-        })
-        .catch(() => caches.match(pedido).then((r) => r || caches.match("index.html")))
-    );
-    return;
-  }
-
-  // Demais arquivos: usa o que está guardado e atualiza em segundo plano
-  evento.respondWith(
-    caches.match(pedido).then((guardado) => {
-      const daRede = fetch(pedido)
-        .then((resposta) => {
-          if (resposta.ok) {
-            const copia = resposta.clone();
-            caches.open(VERSAO).then((cache) => cache.put(pedido, copia));
-          }
-          return resposta;
-        })
-        .catch(() => guardado);
-      return guardado || daRede;
-    })
+        }
+        return resposta;
+      })
+      .catch(() =>
+        caches.match(pedido).then((guardado) => guardado || (pedido.mode === "navigate" ? caches.match("index.html") : undefined))
+      )
   );
 });
