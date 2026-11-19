@@ -2,12 +2,12 @@
 // Estratégia "rede primeiro": sempre busca a versão mais nova e só usa a cópia
 // guardada quando não há conexão. Assim uma atualização nunca mistura arquivos
 // novos com antigos.
-const VERSAO = "divina-luz-v5";
+const VERSAO = "divina-luz-v6";
 const ARQUIVOS = [
   "./",
   "index.html",
-  "css/style.css?v=5",
-  "js/main.js?v=5",
+  "css/style.css?v=6",
+  "js/main.js?v=6",
   "assets/img/favicon.svg",
   "assets/img/samambaia.svg",
   "assets/img/icone-192.png",

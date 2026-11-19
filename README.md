@@ -60,7 +60,7 @@ Já existe uma em `assets/img/compartilhamento.jpg` (1200 x 630 px). Se quiser t
 
 ## Quando mudar arquivos
 
-Ao alterar CSS ou JavaScript, aumente o número `?v=` nos links do `index.html` (`css/style.css?v=5`, `js/main.js?v=5`) e a versão em `sw.js`. O service worker busca sempre a rede primeiro e só usa a cópia guardada quando não há internet, então quem já visitou o site recebe a versão nova sem misturar arquivos.
+Ao alterar CSS ou JavaScript, aumente o número `?v=` nos links do `index.html` (`css/style.css?v=6`, `js/main.js?v=6`) e a versão em `sw.js`. O service worker busca sempre a rede primeiro e só usa a cópia guardada quando não há internet, então quem já visitou o site recebe a versão nova sem misturar arquivos.
 
 ## Antes de publicar
 
