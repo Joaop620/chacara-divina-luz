@@ -1,6 +1,6 @@
 // Service worker: guarda o site no aparelho para abrir rápido e funcionar sem internet.
 // Troque a versão sempre que mudar arquivos importantes.
-const VERSAO = "divina-luz-v1";
+const VERSAO = "divina-luz-v2";
 const ARQUIVOS = [
   "./",
   "index.html",

@@ -28,7 +28,7 @@ chacara-divina-luz/
 
 - Barra de progresso da leitura e destaque do capítulo atual no menu
 - Números da comunidade que contam ao aparecer na tela
-- Mapa do Google que só carrega quando a pessoa clica (página mais leve e sem rastreio desnecessário)
+- Mapa animado feito em SVG, sem serviço externo: começa no Brasil, aproxima em Rondônia (BR-364, Rio Machado e as cidades de onde vêm as famílias) e termina em Ji-Paraná com o cartão do endereço. Tem etapas clicáveis e botão para ver de novo. O contorno dos estados vem do pacote @highcharts/map-collection e as cidades foram posicionadas pelas coordenadas reais
 - Botões para traçar rota, copiar o endereço e compartilhar o site (no celular abre o menu de compartilhar do próprio aparelho)
 - Galeria com ampliação, navegação pelo teclado e deslizar com o dedo no celular
 - Funciona sem internet depois da primeira visita e pode ser instalado na tela inicial do celular (PWA)
