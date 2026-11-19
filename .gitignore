@@ -1,0 +1,22 @@
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+
+# Ambiente e chaves
+.env
+.env.*
+
+# Vercel
+.vercel/
+
+# Material bruto (não publicar)
+brutos/
+*.mov
+*.MOV
+*.psd
