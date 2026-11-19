@@ -1,5 +1,7 @@
 # Chácara Divina Luz
 
+Site: https://chacara-divina-luz.vercel.app
+
 Site institucional do Centro de Regeneração Espiritual Casa de Jesus e Lar de Frei Manuel, que funciona na Chácara Divina Luz, em Ji-Paraná (RO).
 
 O site faz parte do Projeto de Extensão **Culturas, Memórias e Diversidades**, do curso de Análise e Desenvolvimento de Sistemas da Universidade Anhembi Morumbi (2026). Foi feito por João Paulo Crestani Ferreira em parceria com a comunidade.
