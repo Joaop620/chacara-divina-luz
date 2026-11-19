@@ -189,87 +189,168 @@
   // ---------- Mapa animado: Brasil > Rondônia > Ji-Paraná ----------
   var mm = document.querySelector(".mm");
   if (mm) {
+    var dadosMapa = JSON.parse(mm.getAttribute("data-mapa"));
+    var cenas = dadosMapa.cenas;
+    var afim = dadosMapa.afim;       // converte coordenada do desenho em longitude/latitude
+    var unidadesPorKm = dadosMapa.upk;
     var svgMapa = mm.querySelector(".mm__svg");
-    var cenas = JSON.parse(mm.getAttribute("data-cenas"));
-    var alvoBase = mm.querySelector(".mm__alvo").getAttribute("transform").match(/translate\(([\d.]+) ([\d.]+)/);
-    if (window.matchMedia("(max-width: 760px)").matches) {
-      // No celular a tela é vertical: enquadra só o eixo da BR-364 e deixa Ji-Paraná no terço de cima
-      var jx = parseFloat(alvoBase[1]), jy = parseFloat(alvoBase[2]);
-      cenas["2"] = [1600, 3790, 1420, 1420];
-      cenas["3"] = [jx - 46, jy - 48, 124, 150];
-    }
+    var palco = mm.querySelector(".mm__palco");
     var alvo = mm.querySelector(".mm__alvo");
-    var nome = mm.querySelector(".mm__nome");
+    var veiculo = mm.querySelector("#mm-veiculo");
     var viajantes = mm.querySelectorAll(".mm__viajante animateMotion");
-    var botoesPasso = mm.querySelectorAll("[data-ir]");
+    var botoesPasso = Array.prototype.slice.call(mm.querySelectorAll("[data-ir]"));
     var cartaoLink = mm.querySelector(".mm__cartao-link");
-    var alvoX = parseFloat(alvo.getAttribute("transform").match(/translate\(([\d.]+)/)[1]);
-    var alvoY = parseFloat(alvo.getAttribute("transform").match(/translate\([\d.]+ ([\d.]+)/)[1]);
+    var hudNum = mm.querySelector(".mm__hud-num");
+    var hudNome = mm.querySelector(".mm__hud-nome");
+    var hudCoord = mm.querySelector(".mm__hud-coord");
+    var barraEscala = mm.querySelector(".mm__escala-barra");
+    var textoEscala = mm.querySelector(".mm__escala-txt");
+    var alvoX = dadosMapa.alvo[0], alvoY = dadosMapa.alvo[1];
+    var nomesCena = { 1: "Brasil", 2: "Rondônia", 3: "Ji-Paraná" };
+    var duracaoCena = { 1: 3400, 2: 6600, 3: 0 };
+
+    if (window.matchMedia("(max-width: 760px)").matches) {
+      // No celular a tela é vertical: enquadra o eixo da BR-364 e deixa Ji-Paraná no terço de cima
+      cenas["2"] = [1600, 3790, 1420, 1420];
+      cenas["3"] = [alvoX - 46, alvoY - 48, 124, 150];
+    }
+
     var caixaAtual = cenas["1"].slice();
     var animacao = null;
     var roteiro = [];
-    var cenaAtual = 0;
 
+    function grausParaTexto(valor, pos, neg) {
+      var abs = Math.abs(valor);
+      var g = Math.floor(abs);
+      var m = Math.round((abs - g) * 60);
+      if (m === 60) { g += 1; m = 0; }
+      return g + "°" + (m < 10 ? "0" : "") + m + "′" + (valor < 0 ? neg : pos);
+    }
+    function atualizarHud(caixa) {
+      var cx = caixa[0] + caixa[2] / 2, cy = caixa[1] + caixa[3] / 2;
+      var lon = afim[0] * cx + afim[1] * cy + afim[2];
+      var lat = afim[3] * cx + afim[4] * cy + afim[5];
+      hudCoord.textContent = grausParaTexto(lat, "N", "S") + "  " + grausParaTexto(lon, "L", "O");
+      // Escala: escolhe um valor redondo que dê uma barra entre 60 e 140 px
+      var largura = palco.clientWidth, altura = palco.clientHeight;
+      var pxPorUnidade = Math.min(largura / caixa[2], altura / caixa[3]);
+      var pxPorKm = pxPorUnidade * unidadesPorKm;
+      var opcoes = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000];
+      var km = opcoes[opcoes.length - 1];
+      for (var i = 0; i < opcoes.length; i++) { if (opcoes[i] * pxPorKm >= 60) { km = opcoes[i]; break; } }
+      barraEscala.style.width = Math.round(km * pxPorKm) + "px";
+      textoEscala.textContent = km.toLocaleString("pt-BR") + " km";
+    }
     function desenhar(caixa) {
       svgMapa.setAttribute("viewBox", caixa.map(function (v) { return v.toFixed(2); }).join(" "));
       // O marcador mantém o mesmo tamanho na tela em qualquer zoom
       var k = Math.max(caixa[2] / 300, 1);
       alvo.setAttribute("transform", "translate(" + alvoX + " " + alvoY + ") scale(" + k.toFixed(3) + ")");
+      atualizarHud(caixa);
     }
-    function voarPara(destino, duracao) {
+    function voarPara(destino, duracao, aoTerminar) {
       cancelAnimationFrame(animacao);
       var inicio = caixaAtual.slice();
-      if (reduzirMovimento || !duracao) { caixaAtual = destino.slice(); desenhar(caixaAtual); return; }
+      if (reduzirMovimento || !duracao) {
+        caixaAtual = destino.slice(); desenhar(caixaAtual);
+        if (aoTerminar) aoTerminar();
+        return;
+      }
       var t0 = null;
-      // Interpola o zoom em escala logarítmica, que dá a sensação de câmera
+      // Zoom em escala logarítmica e centro acompanhando o zoom: sensação de câmera de verdade
       var w0 = Math.log(inicio[2]), w1 = Math.log(destino[2]);
       var c0 = [inicio[0] + inicio[2] / 2, inicio[1] + inicio[3] / 2];
       var c1 = [destino[0] + destino[2] / 2, destino[1] + destino[3] / 2];
-      var razao = destino[3] / destino[2], razao0 = inicio[3] / inicio[2];
+      var r0 = inicio[3] / inicio[2], r1 = destino[3] / destino[2];
+      mm.classList.add("voando");
       function passo(t) {
         if (t0 === null) t0 = t;
         var x = Math.min((t - t0) / duracao, 1);
         var e = x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
-        var w = Math.exp(w0 + (w1 - w0) * e);
-        var r = razao0 + (razao - razao0) * e;
-        var h = w * r;
+        var ez = x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+        var w = Math.exp(w0 + (w1 - w0) * ez);
+        var h = w * (r0 + (r1 - r0) * e);
         var cx = c0[0] + (c1[0] - c0[0]) * e, cy = c0[1] + (c1[1] - c0[1]) * e;
         caixaAtual = [cx - w / 2, cy - h / 2, w, h];
         desenhar(caixaAtual);
-        if (x < 1) animacao = requestAnimationFrame(passo);
+        if (x > 0.72) mm.classList.remove("voando");
+        if (x < 1) { animacao = requestAnimationFrame(passo); }
+        else if (aoTerminar) { aoTerminar(); }
       }
       animacao = requestAnimationFrame(passo);
     }
-    function irPara(cena, duracao) {
-      cenaAtual = cena;
+    function trocarTitulo(cena) {
+      hudNum.textContent = "0" + cena;
+      hudNome.textContent = nomesCena[cena];
+      hudNome.classList.remove("troca");
+      void hudNome.offsetWidth;
+      hudNome.classList.add("troca");
+    }
+    var progressoAtual = 0;
+    function marcarPassos(cena, comProgresso) {
+      var vez = ++progressoAtual;
+      botoesPasso.forEach(function (b) {
+        var n = parseInt(b.getAttribute("data-ir"), 10);
+        b.classList.toggle("ativo", n === cena);
+        b.style.setProperty("--progresso", n < cena || (n === cena && !comProgresso) ? 1 : 0);
+        if (n === cena && comProgresso && duracaoCena[cena]) {
+          // A linha do passo enche durante o tempo da etapa
+          var t0 = null, dur = duracaoCena[cena];
+          var passo = function (t) {
+            if (vez !== progressoAtual) return;
+            if (t0 === null) t0 = t;
+            var x = Math.min((t - t0) / dur, 1);
+            b.style.setProperty("--progresso", x.toFixed(3));
+            if (x < 1) requestAnimationFrame(passo);
+          };
+          requestAnimationFrame(passo);
+        }
+      });
+    }
+    function irPara(cena, duracao, comProgresso) {
       mm.setAttribute("data-cena", String(cena));
-      voarPara(cenas[String(cena)], duracao === undefined ? 1900 : duracao);
-      botoesPasso.forEach(function (b) { b.classList.toggle("ativo", b.getAttribute("data-ir") === String(cena)); });
+      if (cena === 1) {
+        mm.classList.add("iniciado");
+        setTimeout(function () { mm.classList.add("elevado"); }, duracao ? 300 : 1500);
+      } else {
+        mm.classList.add("iniciado", "elevado");
+      }
+      trocarTitulo(cena);
+      marcarPassos(cena, comProgresso);
       cartaoLink.tabIndex = cena === 3 ? 0 : -1;
-      if (cena === 2) viajantes.forEach(function (v) { try { v.beginElement(); } catch (e) {} });
+      voarPara(cenas[String(cena)], duracao === undefined ? 2200 : duracao, function () {
+        if (cena === 2) {
+          try { veiculo.beginElement(); } catch (e) {}
+          viajantes.forEach(function (v) { try { v.beginElement(); } catch (e) {} });
+        }
+      });
     }
     function limparRoteiro() { roteiro.forEach(clearTimeout); roteiro = []; }
     function tocar() {
       limparRoteiro();
+      mm.classList.remove("iniciado", "elevado", "voando");
+      mm.setAttribute("data-cena", "0");
       caixaAtual = cenas["1"].slice();
       desenhar(caixaAtual);
-      irPara(1, 0);
-      roteiro.push(setTimeout(function () { irPara(2); }, 2200));
-      roteiro.push(setTimeout(function () { irPara(3, 2300); }, 7600));
+      void mm.offsetWidth;
+      irPara(1, 0, true);
+      roteiro.push(setTimeout(function () { irPara(2, 2400, true); }, duracaoCena[1]));
+      roteiro.push(setTimeout(function () { irPara(3, 2800, false); }, duracaoCena[1] + duracaoCena[2]));
     }
     botoesPasso.forEach(function (b) {
-      b.addEventListener("click", function () { limparRoteiro(); irPara(parseInt(b.getAttribute("data-ir"), 10)); });
+      b.addEventListener("click", function () { limparRoteiro(); irPara(parseInt(b.getAttribute("data-ir"), 10), 2200, false); });
     });
     mm.querySelector("[data-repetir]").addEventListener("click", tocar);
+    window.addEventListener("resize", function () { atualizarHud(caixaAtual); });
 
     desenhar(caixaAtual);
-    if ("IntersectionObserver" in window) {
+    if ("IntersectionObserver" in window && !reduzirMovimento) {
       var vigia = new IntersectionObserver(function (entradas) {
         if (entradas[0].isIntersecting) { vigia.disconnect(); tocar(); }
       }, { threshold: 0.45 });
       vigia.observe(mm);
     } else {
-      irPara(3, 0);
+      irPara(3, 0, false);
     }
   }
 
