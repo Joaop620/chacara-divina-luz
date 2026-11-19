@@ -60,7 +60,7 @@ Já existe uma em `assets/img/compartilhamento.jpg` (1200 x 630 px). Se quiser t
 
 ## Quando mudar arquivos
 
-Ao alterar CSS ou JavaScript, troque a versão em `sw.js` (por exemplo, `divina-luz-v1` para `divina-luz-v2`). Assim quem já visitou o site recebe a versão nova.
+Ao alterar CSS ou JavaScript, aumente o número `?v=` nos links do `index.html` (`css/style.css?v=4`, `js/main.js?v=4`) e a versão em `sw.js`. O service worker busca sempre a rede primeiro e só usa a cópia guardada quando não há internet, então quem já visitou o site recebe a versão nova sem misturar arquivos.
 
 ## Antes de publicar
 
