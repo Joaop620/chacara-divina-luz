@@ -186,18 +186,91 @@
     toqueX = null;
   });
 
-  // ---------- Mapa: só carrega quando a pessoa pede ----------
-  var botaoMapa = document.querySelector("[data-mapa]");
-  if (botaoMapa) {
-    botaoMapa.addEventListener("click", function () {
-      var quadro = document.createElement("iframe");
-      quadro.src = botaoMapa.getAttribute("data-mapa");
-      quadro.title = "Mapa da Chácara Divina Luz";
-      quadro.loading = "lazy";
-      quadro.referrerPolicy = "no-referrer-when-downgrade";
-      quadro.allowFullscreen = true;
-      botaoMapa.replaceWith(quadro);
+  // ---------- Mapa animado: Brasil > Rondônia > Ji-Paraná ----------
+  var mm = document.querySelector(".mm");
+  if (mm) {
+    var svgMapa = mm.querySelector(".mm__svg");
+    var cenas = JSON.parse(mm.getAttribute("data-cenas"));
+    var alvoBase = mm.querySelector(".mm__alvo").getAttribute("transform").match(/translate\(([\d.]+) ([\d.]+)/);
+    if (window.matchMedia("(max-width: 760px)").matches) {
+      // No celular a tela é vertical: enquadra só o eixo da BR-364 e deixa Ji-Paraná no terço de cima
+      var jx = parseFloat(alvoBase[1]), jy = parseFloat(alvoBase[2]);
+      cenas["2"] = [1600, 3790, 1420, 1420];
+      cenas["3"] = [jx - 46, jy - 48, 124, 150];
+    }
+    var alvo = mm.querySelector(".mm__alvo");
+    var nome = mm.querySelector(".mm__nome");
+    var viajantes = mm.querySelectorAll(".mm__viajante animateMotion");
+    var botoesPasso = mm.querySelectorAll("[data-ir]");
+    var cartaoLink = mm.querySelector(".mm__cartao-link");
+    var alvoX = parseFloat(alvo.getAttribute("transform").match(/translate\(([\d.]+)/)[1]);
+    var alvoY = parseFloat(alvo.getAttribute("transform").match(/translate\([\d.]+ ([\d.]+)/)[1]);
+    var caixaAtual = cenas["1"].slice();
+    var animacao = null;
+    var roteiro = [];
+    var cenaAtual = 0;
+
+    function desenhar(caixa) {
+      svgMapa.setAttribute("viewBox", caixa.map(function (v) { return v.toFixed(2); }).join(" "));
+      // O marcador mantém o mesmo tamanho na tela em qualquer zoom
+      var k = Math.max(caixa[2] / 300, 1);
+      alvo.setAttribute("transform", "translate(" + alvoX + " " + alvoY + ") scale(" + k.toFixed(3) + ")");
+    }
+    function voarPara(destino, duracao) {
+      cancelAnimationFrame(animacao);
+      var inicio = caixaAtual.slice();
+      if (reduzirMovimento || !duracao) { caixaAtual = destino.slice(); desenhar(caixaAtual); return; }
+      var t0 = null;
+      // Interpola o zoom em escala logarítmica, que dá a sensação de câmera
+      var w0 = Math.log(inicio[2]), w1 = Math.log(destino[2]);
+      var c0 = [inicio[0] + inicio[2] / 2, inicio[1] + inicio[3] / 2];
+      var c1 = [destino[0] + destino[2] / 2, destino[1] + destino[3] / 2];
+      var razao = destino[3] / destino[2], razao0 = inicio[3] / inicio[2];
+      function passo(t) {
+        if (t0 === null) t0 = t;
+        var x = Math.min((t - t0) / duracao, 1);
+        var e = x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+        var w = Math.exp(w0 + (w1 - w0) * e);
+        var r = razao0 + (razao - razao0) * e;
+        var h = w * r;
+        var cx = c0[0] + (c1[0] - c0[0]) * e, cy = c0[1] + (c1[1] - c0[1]) * e;
+        caixaAtual = [cx - w / 2, cy - h / 2, w, h];
+        desenhar(caixaAtual);
+        if (x < 1) animacao = requestAnimationFrame(passo);
+      }
+      animacao = requestAnimationFrame(passo);
+    }
+    function irPara(cena, duracao) {
+      cenaAtual = cena;
+      mm.setAttribute("data-cena", String(cena));
+      voarPara(cenas[String(cena)], duracao === undefined ? 1900 : duracao);
+      botoesPasso.forEach(function (b) { b.classList.toggle("ativo", b.getAttribute("data-ir") === String(cena)); });
+      cartaoLink.tabIndex = cena === 3 ? 0 : -1;
+      if (cena === 2) viajantes.forEach(function (v) { try { v.beginElement(); } catch (e) {} });
+    }
+    function limparRoteiro() { roteiro.forEach(clearTimeout); roteiro = []; }
+    function tocar() {
+      limparRoteiro();
+      caixaAtual = cenas["1"].slice();
+      desenhar(caixaAtual);
+      irPara(1, 0);
+      roteiro.push(setTimeout(function () { irPara(2); }, 2200));
+      roteiro.push(setTimeout(function () { irPara(3, 2300); }, 7600));
+    }
+    botoesPasso.forEach(function (b) {
+      b.addEventListener("click", function () { limparRoteiro(); irPara(parseInt(b.getAttribute("data-ir"), 10)); });
     });
+    mm.querySelector("[data-repetir]").addEventListener("click", tocar);
+
+    desenhar(caixaAtual);
+    if ("IntersectionObserver" in window) {
+      var vigia = new IntersectionObserver(function (entradas) {
+        if (entradas[0].isIntersecting) { vigia.disconnect(); tocar(); }
+      }, { threshold: 0.45 });
+      vigia.observe(mm);
+    } else {
+      irPara(3, 0);
+    }
   }
 
   // ---------- Copiar endereço ----------
