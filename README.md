@@ -1,4 +1,4 @@
-# Chácara Divina Luz
+# Casa de Jesus e Lar de Frei Manuel · Chácara Divina Luz
 
 Site: https://chacara-divina-luz.vercel.app
 
