@@ -11,6 +11,17 @@
   window.addEventListener("scroll", aoRolar, { passive: true });
   aoRolar();
 
+  // Paisagem: no celular, enquadra a casa e o sol
+  var paisagem = document.querySelector(".paisagem");
+  var celular = window.matchMedia("(max-width: 760px)");
+  function enquadrar() {
+    paisagem.setAttribute("viewBox", celular.matches ? "610 90 580 330" : "0 0 1440 420");
+  }
+  if (paisagem) {
+    enquadrar();
+    if (celular.addEventListener) celular.addEventListener("change", enquadrar);
+  }
+
   // Menu no celular
   var botaoMenu = document.querySelector(".menu-botao");
   var menu = document.getElementById("menu");
@@ -54,7 +65,7 @@
   if (video.networkState === HTMLMediaElement.NETWORK_NO_SOURCE) semVideo();
 
   // Galeria: espaço reservado enquanto a foto não existir
-  var itens = Array.prototype.slice.call(document.querySelectorAll(".galeria__item"));
+  var itens = Array.prototype.slice.call(document.querySelectorAll(".foto"));
   itens.forEach(function (item) {
     var img = item.querySelector("img");
     function marcar() { item.classList.add("sem-foto"); }
