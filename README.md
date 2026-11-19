@@ -30,15 +30,15 @@ chacara-divina-luz/
 2. Salve como `assets/video/fernando.mp4`.
 3. Opcional: salve um quadro do vídeo como `assets/video/capa.jpg` para servir de capa.
 
-Enquanto o arquivo não existir, o site mostra o aviso "Vídeo em produção".
+O quadro do vídeo é vertical (4:5), pensado para gravação com o celular em pé, mas aceita qualquer formato. Enquanto o arquivo não existir, o site mostra o aviso "Em gravação".
 
 **Fotos da Chácara**
 
 1. Salve as fotos como `assets/fotos/foto-1.jpg` até `foto-6.jpg`. O ideal é ter até 1600 px de largura e menos de 400 KB cada.
-2. A foto 1 ocupa um espaço largo e a foto 4 um espaço alto. Escolha imagens que combinem com esses formatos.
+2. Formatos: foto 1 horizontal (4:3), foto 2 vertical (3:4), foto 3 quadrada, foto 4 horizontal (5:4), foto 5 horizontal (3:2) e foto 6 panorâmica (16:9).
 3. No `index.html`, ajuste o texto de `data-legenda`, `alt` e `figcaption` de cada foto.
 
-Enquanto a foto não existir, o espaço aparece como "Foto em breve".
+Enquanto a foto não existir, o espaço aparece hachurado com o aviso "Foto a caminho".
 
 **Imagem de compartilhamento**
 
