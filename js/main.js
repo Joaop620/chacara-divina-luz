@@ -6,7 +6,7 @@
   // Topo muda de fundo ao rolar
   var topo = document.getElementById("topo");
   function aoRolar() {
-    topo.classList.toggle("rolou", window.scrollY > 40);
+    topo.classList.toggle("rolou", window.scrollY > window.innerHeight * 0.7);
   }
   window.addEventListener("scroll", aoRolar, { passive: true });
   aoRolar();
