@@ -7,7 +7,7 @@
   <meta name="description" content="Desde 1991 em Ji-Paraná, Rondônia. A história, a convivência e a ação social do Centro de Regeneração Espiritual Casa de Jesus e Lar de Frei Manuel, na Chácara Divina Luz.">
   <!-- Retire a linha abaixo depois que o Fernando aprovar a publicação do site. -->
   <meta name="robots" content="noindex, nofollow">
-  <meta name="theme-color" content="#14261d">
+  <meta name="theme-color" content="#fbf6ec">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
@@ -19,68 +19,128 @@
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <a class="pular" href="#video">Pular para o conteúdo</a>
 
+  <!-- Ícones reutilizados -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-sol" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="i-maos" viewBox="0 0 24 24"><path d="M4 14l4.5-4.2a2 2 0 012.8.1l.7.7M20 14l-4.5-4.2a2 2 0 00-2.8.1L9 13.5a1.4 1.4 0 002 2l1.5-1.4M4 14l5 5h3.5l4.5-4M2.5 12.5L4 14M21.5 12.5L20 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-folha" viewBox="0 0 24 24"><path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14M5 19l7-7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-casa" viewBox="0 0 24 24"><path d="M3.5 11L12 4l8.5 7M6 9.5V20h12V9.5M10 20v-5h4v5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-cesta" viewBox="0 0 24 24"><path d="M3 10h18l-1.8 9H4.8zM7.5 10L11 4M16.5 10L13 4M9 14v2M12 14v2M15 14v2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-porta" viewBox="0 0 24 24"><path d="M6 21V4.5A1.5 1.5 0 017.5 3h9A1.5 1.5 0 0118 4.5V21M3.5 21h17M14.5 12.5v.01" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-grupo" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="17" cy="9.5" r="2.3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5M15 14.3c2.6-.4 4.8 1.1 5.5 4.2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.4-3 7.8-7 9.5-4-1.7-7-5.1-7-9.5V6z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="i-pino" viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0113 0c0 5-6.5 11-6.5 11z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="2.3" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="i-seta" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></symbol>
+  </svg>
+
   <header class="topo" id="topo">
     <div class="topo__inner">
       <a class="marca" href="#inicio" aria-label="Chácara Divina Luz, início">
-        <svg class="marca__simbolo" viewBox="0 0 48 48" aria-hidden="true">
-          <circle cx="24" cy="24" r="9" fill="currentColor"/>
-          <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <path d="M24 4v6M24 38v6M4 24h6M38 24h6M9.9 9.9l4.2 4.2M33.9 33.9l4.2 4.2M9.9 38.1l4.2-4.2M33.9 14.1l4.2-4.2"/>
-          </g>
-        </svg>
-        <span class="marca__texto">
-          <strong>Chácara Divina Luz</strong>
-          <small>Ji-Paraná · RO</small>
-        </span>
+        <span class="marca__selo"><svg><use href="#i-sol"/></svg></span>
+        <span class="marca__texto">Chácara Divina Luz</span>
       </a>
-      <button class="menu-botao" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
-        <span></span><span></span>
-      </button>
       <nav class="menu" id="menu" aria-label="Seções">
         <a href="#video">Vídeo</a>
         <a href="#sobre">Sobre</a>
         <a href="#trajetoria">Trajetória</a>
         <a href="#acao-social">Ação social</a>
         <a href="#fotos">Fotos</a>
-        <a href="#visite">Visite</a>
+        <a class="menu__destaque" href="#visite">Visite</a>
       </nav>
+      <button class="menu-botao" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+        <span></span><span></span>
+      </button>
     </div>
   </header>
 
   <main>
     <!-- 1. Abertura -->
     <section class="abertura" id="inicio">
-      <div class="abertura__luz" aria-hidden="true"></div>
+      <div class="abertura__ceu" aria-hidden="true"></div>
       <div class="abertura__conteudo">
-        <p class="sobretitulo revela">Centro de Regeneração Espiritual Casa de Jesus e Lar de Frei Manuel</p>
-        <h1 class="revela">Chácara<br><em>Divina Luz</em></h1>
-        <p class="abertura__lead revela">Desde 1991, um lugar de fé, acolhimento e trabalho comunitário em Ji-Paraná. Uma história contada por quem ajudou a construí-la.</p>
-        <dl class="numeros revela">
-          <div><dt>1991</dt><dd>ano de fundação</dd></div>
-          <div><dt>80</dt><dd>famílias cadastradas</dd></div>
-          <div><dt>~300</dt><dd>atendimentos por mês</dd></div>
-          <div><dt>4</dt><dd>fundadores ainda presentes</dd></div>
-        </dl>
+        <p class="etiqueta revela"><span class="etiqueta__ponto"></span>Ji-Paraná, Rondônia · desde 1991</p>
+        <h1 class="revela">Onde a luz<br>encontra <em>acolhimento</em></h1>
+        <p class="abertura__lead revela">A Chácara Divina Luz é a casa do Centro de Regeneração Espiritual Casa de Jesus e Lar de Frei Manuel. Há mais de três décadas, reúne famílias em torno da fé, da convivência e do cuidado com quem precisa.</p>
+        <div class="abertura__acoes revela">
+          <a class="botao" href="#video">Assistir à apresentação <svg><use href="#i-play"/></svg></a>
+          <a class="botao botao--leve" href="#sobre">Conhecer a história</a>
+        </div>
       </div>
-      <a class="abertura__rolar" href="#video" aria-label="Ir para o vídeo">
-        <span>Conheça</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
+
+      <svg class="paisagem" viewBox="0 0 1440 420" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+        <defs>
+          <radialGradient id="sol" cx="50%" cy="50%" r="50%">
+            <stop offset="0" stop-color="#fff3cf"/>
+            <stop offset=".55" stop-color="#f5c96a"/>
+            <stop offset="1" stop-color="#e9a94a"/>
+          </radialGradient>
+          <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+            <stop offset="0" stop-color="#f7d58b" stop-opacity=".55"/>
+            <stop offset="1" stop-color="#f7d58b" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <g class="paisagem__sol">
+          <circle cx="1060" cy="190" r="230" fill="url(#halo)"/>
+          <circle cx="1060" cy="190" r="92" fill="url(#sol)"/>
+        </g>
+        <g class="paisagem__aves" fill="none" stroke="#6b5a45" stroke-width="2" stroke-linecap="round" opacity=".55">
+          <path d="M860 120q9-8 18 0q9-8 18 0"/>
+          <path d="M915 92q6-5 12 0q6-5 12 0"/>
+          <path d="M820 150q5-4 10 0q5-4 10 0"/>
+        </g>
+        <path class="camada camada--1" d="M0 260C180 200 330 230 470 210s280-70 450-40 330 40 520 0v250H0z" fill="#e7d3b0"/>
+        <path class="camada camada--2" d="M0 300c160-40 300-10 450-30s240-60 420-40 280 60 570 10v180H0z" fill="#b9c39a"/>
+        <g class="camada camada--3">
+          <path d="M0 340c200-30 360 10 560-10s350-50 520-20 220 30 360 10v100H0z" fill="#7f9a72"/>
+          <!-- árvores -->
+          <g fill="#5d7a55">
+            <rect x="196" y="270" width="5" height="50" rx="2" fill="#4d5f3f"/>
+            <circle cx="198" cy="262" r="26"/><circle cx="182" cy="276" r="18"/><circle cx="216" cy="278" r="17"/>
+            <rect x="1236" y="262" width="5" height="60" rx="2" fill="#4d5f3f"/>
+            <circle cx="1238" cy="252" r="30"/><circle cx="1220" cy="270" r="20"/><circle cx="1258" cy="268" r="21"/>
+          </g>
+          <!-- casa da chácara -->
+          <g transform="translate(640 268)">
+            <path d="M0 40h92V78H0z" fill="#f4e6cc"/>
+            <path d="M-8 42L46 8l54 34z" fill="#b5582f"/>
+            <rect x="38" y="54" width="16" height="24" rx="2" fill="#6b4a2f"/>
+            <rect x="12" y="52" width="14" height="12" rx="1.5" fill="#f5c96a"/>
+            <rect x="66" y="52" width="14" height="12" rx="1.5" fill="#f5c96a"/>
+          </g>
+          <!-- palmeira -->
+          <g transform="translate(560 230)" stroke="#4d6a46" stroke-width="3" fill="none" stroke-linecap="round">
+            <path d="M18 120c-4-40 0-80 6-110"/>
+            <path d="M24 10c-16-6-34-2-44 10M24 10c-8-14-24-20-38-16M24 10c14-10 32-10 42 2M24 10c10-14 28-16 40-10M24 10c4 14 0 30-6 38"/>
+          </g>
+        </g>
+        <path class="camada camada--4" d="M0 380c240-24 470-4 720-14s470-30 720-6v60H0z" fill="#3f5c45"/>
+      </svg>
+    </section>
+
+    <!-- Números -->
+    <section class="numeros-faixa" aria-label="A comunidade em números">
+      <dl class="numeros revela">
+        <div><dt>1991</dt><dd>Fundação, em 13 de fevereiro</dd></div>
+        <div><dt>80</dt><dd>Famílias cadastradas</dd></div>
+        <div><dt>300</dt><dd>Atendimentos por mês, em média</dd></div>
+        <div><dt>4</dt><dd>Fundadores que ainda frequentam</dd></div>
+      </dl>
     </section>
 
     <!-- 2. Vídeo -->
-    <section class="secao secao--escura" id="video">
-      <div class="container">
-        <header class="cabecalho revela">
-          <p class="sobretitulo">Em poucas palavras</p>
-          <h2>Quem conta é o <em>Fernando</em></h2>
-          <p>O dirigente do centro apresenta a Chácara, a comunidade e o trabalho que acontece aqui.</p>
+    <section class="secao" id="video">
+      <div class="container video-grade">
+        <header class="video-texto revela">
+          <p class="sobretitulo">Apresentação</p>
+          <h2>Quem conta é<br>o <em>Fernando</em></h2>
+          <p>O dirigente do centro apresenta a Chácara, a comunidade e o trabalho que acontece aqui, nas palavras de quem acompanha essa história desde o começo.</p>
         </header>
 
         <figure class="video revela">
@@ -88,166 +148,175 @@
             Para trocar o vídeo: salve o arquivo como assets/video/fernando.mp4
             e, se quiser, uma imagem de capa em assets/video/capa.jpg.
           -->
-          <video id="video-fernando" controls preload="metadata" playsinline poster="assets/video/capa.jpg">
-            <source src="assets/video/fernando.mp4" type="video/mp4">
-          </video>
-          <div class="video__aguardando" aria-hidden="true">
-            <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M26 21l18 11-18 11z" fill="currentColor"/></svg>
-            <p>Vídeo em produção</p>
-            <small>Em breve, o Fernando apresenta a Chácara Divina Luz.</small>
+          <div class="video__moldura">
+            <video id="video-fernando" controls preload="metadata" playsinline poster="assets/video/capa.jpg">
+              <source src="assets/video/fernando.mp4" type="video/mp4">
+            </video>
+            <div class="video__aguardando" aria-hidden="true">
+              <span class="video__play"><svg><use href="#i-play"/></svg></span>
+              <p>Vídeo em produção</p>
+              <small>Em breve, o Fernando apresenta a Chácara Divina Luz</small>
+            </div>
           </div>
-          <figcaption>Fernando, dirigente do Centro de Regeneração Espiritual Casa de Jesus e Lar de Frei Manuel.</figcaption>
+          <figcaption>Fernando, dirigente do centro</figcaption>
         </figure>
       </div>
     </section>
 
     <!-- 3. Sobre -->
-    <section class="secao" id="sobre">
-      <div class="container sobre">
-        <header class="cabecalho cabecalho--esquerda revela">
-          <p class="sobretitulo">Sobre</p>
-          <h2>Um centro espírita <em>com as portas abertas</em></h2>
-        </header>
-        <div class="sobre__texto revela">
-          <p>O Centro de Regeneração Espiritual Casa de Jesus e Lar de Frei Manuel funciona na Chácara Divina Luz, no bairro Nova Londrina, em Ji-Paraná. É um centro espírita de linha apostólica, fundado em 13 de fevereiro de 1991.</p>
-          <p>Hoje reúne cerca de 80 famílias cadastradas, a maioria de Ji-Paraná e outras de Porto Velho, Ouro Preto do Oeste, Jaru e Cacoal. Além dos membros, recebe visitantes e pessoas que chegam em busca de ajuda espiritual.</p>
-          <p>A casa tem normas claras para quem frequenta: não se bebe, não se fuma e não se usa drogas. Para os membros, a convivência também passa pelos mutirões, que mantêm o espaço vivo e cuidado.</p>
-        </div>
-        <ul class="pilares revela">
-          <li>
-            <span class="pilares__num">01</span>
-            <h3>Acolhimento</h3>
-            <p>Qualquer pessoa pode conhecer o centro e assistir aos trabalhos.</p>
-          </li>
-          <li>
-            <span class="pilares__num">02</span>
-            <h3>Cuidado</h3>
-            <p>Quem deseja participar passa por conversa, aconselhamento e acompanhamento.</p>
-          </li>
-          <li>
-            <span class="pilares__num">03</span>
-            <h3>Discrição</h3>
-            <p>A privacidade de cada pessoa que frequenta a casa é respeitada.</p>
-          </li>
-          <li>
-            <span class="pilares__num">04</span>
-            <h3>Comunidade</h3>
-            <p>Mutirões e ação social feitos pelos próprios membros.</p>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- 4. Trajetória -->
-    <section class="secao secao--areia" id="trajetoria">
+    <section class="secao secao--papel" id="sobre">
       <div class="container">
-        <header class="cabecalho revela">
-          <p class="sobretitulo">Trajetória</p>
-          <h2>Mais de três décadas <em class="sem-quebra">em Ji-Paraná</em></h2>
-        </header>
-        <ol class="linha">
-          <li class="linha__item revela">
-            <span class="linha__ano">1991</span>
-            <h3>A fundação</h3>
-            <p>Em 13 de fevereiro de 1991, um pequeno grupo funda o centro em Ji-Paraná. Quatro dessas pessoas ainda frequentam a casa.</p>
-          </li>
-          <li class="linha__item revela">
-            <!-- Confirme o ano com o Carlos e troque o texto abaixo, se quiser. -->
-            <span class="linha__ano">A Chácara</span>
-            <h3>Um terreno doado</h3>
-            <p>O terreno da Chácara Divina Luz chega por doação, e a comunidade passa a ter um espaço próprio para crescer.</p>
-          </li>
-          <li class="linha__item revela">
-            <span class="linha__ano">Ação social</span>
-            <h3>Para além dos trabalhos</h3>
-            <p>O centro passa a atender egressos do sistema prisional em um projeto de reinserção e a colaborar com a APAC sempre que é convidado.</p>
-          </li>
-          <li class="linha__item revela">
-            <span class="linha__ano">Hoje</span>
-            <h3>Uma comunidade de famílias</h3>
-            <p>Cerca de 80 famílias cadastradas, quatro sessões por mês e por volta de 300 atendimentos mensais.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
+        <p class="sobretitulo revela">Sobre</p>
+        <p class="declaracao revela">Um centro espírita de linha apostólica, fundado em <em>1991</em>, que reúne famílias de Ji-Paraná e de cidades vizinhas em torno da fé, da disciplina e do <em>cuidado com o outro</em>.</p>
 
-    <!-- 5. Ação social -->
-    <section class="secao" id="acao-social">
-      <div class="container acao">
-        <div class="acao__citacao revela">
-          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 34c0-9 4-16 13-20l2 3c-5 3-7 6-7 10h6v11H8zm18 0c0-9 4-16 13-20l2 3c-5 3-7 6-7 10h6v11H26z" fill="currentColor"/></svg>
-          <blockquote>
-            <p>Eu preciso fazer para quem precisa, e não para quem quer.</p>
-            <footer>Fernando, dirigente do centro</footer>
-          </blockquote>
-        </div>
-        <div class="acao__lista">
-          <header class="cabecalho cabecalho--esquerda revela">
-            <p class="sobretitulo">Ação social</p>
-            <h2>A ajuda que <em>chega a quem procura</em></h2>
-            <p>O trabalho assistencial nasce da procura. O centro não mantém convênios fixos e escolhe ajudar onde a necessidade é real.</p>
-          </header>
-          <ul class="cartoes">
-            <li class="cartao revela">
-              <span class="selo">Contínuo</span>
-              <h3>Cestas básicas e doações</h3>
-              <p>Famílias que procuram o centro recebem cestas básicas e outras doações, conforme a necessidade.</p>
+        <div class="sobre-grade">
+          <div class="sobre-texto revela">
+            <p>O Centro de Regeneração Espiritual Casa de Jesus e Lar de Frei Manuel funciona na Chácara Divina Luz, no bairro Nova Londrina. Hoje são cerca de 80 famílias cadastradas, a maioria de Ji-Paraná e outras de Porto Velho, Ouro Preto do Oeste, Jaru e Cacoal.</p>
+            <p>Além dos membros, a casa recebe visitantes e pessoas que chegam em busca de ajuda espiritual. As normas são claras para quem frequenta: não se bebe, não se fuma e não se usa drogas.</p>
+          </div>
+          <ul class="pilares">
+            <li class="pilar revela">
+              <span class="pilar__icone"><svg><use href="#i-porta"/></svg></span>
+              <h3>Acolhimento</h3>
+              <p>Qualquer pessoa pode conhecer o centro e assistir aos trabalhos.</p>
             </li>
-            <li class="cartao revela">
-              <span class="selo selo--historico">Histórico</span>
-              <h3>Reinserção social</h3>
-              <p>Um projeto com o sistema prisional atendeu egressos e condenados, ajudando no retorno à vida em sociedade.</p>
+            <li class="pilar revela">
+              <span class="pilar__icone"><svg><use href="#i-folha"/></svg></span>
+              <h3>Cuidado</h3>
+              <p>Quem deseja participar passa por conversa, aconselhamento e acompanhamento.</p>
             </li>
-            <li class="cartao revela">
-              <span class="selo">Quando convidado</span>
-              <h3>Atendimentos na APAC</h3>
-              <p>O dirigente atende na APAC de Ji-Paraná sempre que é chamado.</p>
+            <li class="pilar revela">
+              <span class="pilar__icone"><svg><use href="#i-escudo"/></svg></span>
+              <h3>Discrição</h3>
+              <p>A privacidade de cada pessoa que frequenta a casa é respeitada.</p>
             </li>
-            <li class="cartao revela">
-              <span class="selo">Contínuo</span>
-              <h3>Mutirões comunitários</h3>
-              <p>Os membros se reúnem para cuidar do espaço e das atividades da Chácara.</p>
+            <li class="pilar revela">
+              <span class="pilar__icone"><svg><use href="#i-grupo"/></svg></span>
+              <h3>Comunidade</h3>
+              <p>Mutirões e ação social feitos pelos próprios membros.</p>
             </li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- 6. Fotos -->
-    <section class="secao secao--escura" id="fotos">
+    <!-- 4. Trajetória -->
+    <section class="secao" id="trajetoria">
       <div class="container">
         <header class="cabecalho revela">
-          <p class="sobretitulo">Fotos</p>
-          <h2>A Chácara <em>Divina Luz</em></h2>
+          <p class="sobretitulo">Trajetória</p>
+          <h2>Mais de três décadas <span class="sem-quebra">em <em>Ji-Paraná</em></span></h2>
+        </header>
+        <ol class="linha">
+          <li class="marco revela">
+            <span class="marco__ano">1991</span>
+            <h3>A fundação</h3>
+            <p>Em 13 de fevereiro, um pequeno grupo funda o centro em Ji-Paraná. Quatro dessas pessoas ainda frequentam a casa.</p>
+          </li>
+          <li class="marco revela">
+            <!-- Confirme o ano com o Carlos e troque "A Chácara" pelo ano, se quiser. -->
+            <span class="marco__ano marco__ano--texto">A Chácara</span>
+            <h3>Um terreno doado</h3>
+            <p>O terreno da Chácara Divina Luz chega por doação, e a comunidade ganha um espaço próprio para crescer.</p>
+          </li>
+          <li class="marco revela">
+            <span class="marco__ano marco__ano--texto">Ação social</span>
+            <h3>Além dos trabalhos</h3>
+            <p>O centro atende egressos do sistema prisional em um projeto de reinserção e colabora com a APAC sempre que é convidado.</p>
+          </li>
+          <li class="marco marco--hoje revela">
+            <span class="marco__ano">Hoje</span>
+            <h3>Uma comunidade de famílias</h3>
+            <p>Cerca de 80 famílias, quatro sessões por mês e por volta de 300 atendimentos mensais.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 5. Ação social -->
+    <section class="acao" id="acao-social">
+      <div class="acao__citacao">
+        <div class="acao__citacao-inner revela">
+          <p class="sobretitulo sobretitulo--claro">Ação social</p>
+          <blockquote>
+            <p>“Eu preciso fazer para quem precisa, e não para quem quer.”</p>
+            <footer>Fernando, dirigente do centro</footer>
+          </blockquote>
+        </div>
+      </div>
+      <div class="acao__conteudo">
+        <h2 class="revela">A ajuda que chega <em>a quem procura</em></h2>
+        <p class="acao__lead revela">O trabalho assistencial nasce da procura. O centro não mantém convênios fixos e escolhe ajudar onde a necessidade é real.</p>
+        <ul class="cartoes">
+          <li class="cartao revela">
+            <span class="cartao__icone"><svg><use href="#i-cesta"/></svg></span>
+            <div>
+              <h3>Cestas básicas e doações</h3>
+              <p>Famílias que procuram o centro recebem cestas básicas e outras doações, conforme a necessidade.</p>
+            </div>
+          </li>
+          <li class="cartao revela">
+            <span class="cartao__icone"><svg><use href="#i-maos"/></svg></span>
+            <div>
+              <h3>Reinserção social</h3>
+              <p>Um projeto com o sistema prisional atendeu egressos e condenados no retorno à vida em sociedade.</p>
+            </div>
+          </li>
+          <li class="cartao revela">
+            <span class="cartao__icone"><svg><use href="#i-escudo"/></svg></span>
+            <div>
+              <h3>Atendimentos na APAC</h3>
+              <p>O dirigente atende na APAC de Ji-Paraná sempre que é chamado.</p>
+            </div>
+          </li>
+          <li class="cartao revela">
+            <span class="cartao__icone"><svg><use href="#i-casa"/></svg></span>
+            <div>
+              <h3>Mutirões comunitários</h3>
+              <p>Os membros se reúnem para cuidar do espaço e das atividades da Chácara.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6. Fotos -->
+    <section class="secao secao--papel" id="fotos">
+      <div class="container">
+        <header class="cabecalho cabecalho--linha revela">
+          <div>
+            <p class="sobretitulo">Fotos</p>
+            <h2>Um passeio pela <em>Chácara</em></h2>
+          </div>
           <p>Toque ou clique em uma foto para ampliar.</p>
         </header>
         <!--
           Para colocar as fotos: salve os arquivos em assets/fotos/ com os nomes
-          foto-1.jpg até foto-6.jpg e ajuste as legendas (data-legenda e figcaption).
+          foto-1.jpg até foto-6.jpg e ajuste as legendas (data-legenda, alt e figcaption).
           Só use fotos de pessoas que assinaram o termo de autorização.
         -->
         <div class="galeria">
-          <figure class="galeria__item galeria__item--largo revela" data-legenda="Entrada da Chácara Divina Luz">
+          <figure class="foto foto--a revela" data-legenda="Entrada da Chácara Divina Luz">
             <img src="assets/fotos/foto-1.jpg" alt="Entrada da Chácara Divina Luz" loading="lazy">
             <figcaption>Entrada da Chácara</figcaption>
           </figure>
-          <figure class="galeria__item revela" data-legenda="O salão principal">
+          <figure class="foto foto--b revela" data-legenda="O salão principal">
             <img src="assets/fotos/foto-2.jpg" alt="O salão principal" loading="lazy">
             <figcaption>O salão</figcaption>
           </figure>
-          <figure class="galeria__item revela" data-legenda="Área verde da Chácara">
+          <figure class="foto foto--c revela" data-legenda="Área verde da Chácara">
             <img src="assets/fotos/foto-3.jpg" alt="Área verde da Chácara" loading="lazy">
             <figcaption>Área verde</figcaption>
           </figure>
-          <figure class="galeria__item galeria__item--alto revela" data-legenda="Detalhe do espaço">
+          <figure class="foto foto--d revela" data-legenda="Detalhe do espaço">
             <img src="assets/fotos/foto-4.jpg" alt="Detalhe do espaço" loading="lazy">
             <figcaption>Detalhes</figcaption>
           </figure>
-          <figure class="galeria__item revela" data-legenda="Mutirão comunitário">
+          <figure class="foto foto--e revela" data-legenda="Mutirão comunitário">
             <img src="assets/fotos/foto-5.jpg" alt="Mutirão comunitário" loading="lazy">
             <figcaption>Mutirão</figcaption>
           </figure>
-          <figure class="galeria__item revela" data-legenda="Fim de tarde na Chácara">
+          <figure class="foto foto--f revela" data-legenda="Fim de tarde na Chácara">
             <img src="assets/fotos/foto-6.jpg" alt="Fim de tarde na Chácara" loading="lazy">
             <figcaption>Fim de tarde</figcaption>
           </figure>
@@ -258,63 +327,68 @@
     <!-- 7. Visite -->
     <section class="secao" id="visite">
       <div class="container visite">
-        <header class="cabecalho cabecalho--esquerda revela">
-          <p class="sobretitulo">Visite</p>
-          <h2>Como <em>chegar e participar</em></h2>
-        </header>
-        <div class="visite__grade">
-          <div class="visite__bloco revela">
-            <h3>Endereço</h3>
-            <address>
-              Rodovia 135, 3580<br>
-              Nova Londrina, Ji-Paraná, RO<br>
-              CEP 76915-500
-            </address>
-            <a class="botao" href="https://www.google.com/maps/search/?api=1&amp;query=Ch%C3%A1cara+Divina+Luz+Ji-Paran%C3%A1" target="_blank" rel="noopener">Abrir no mapa</a>
-          </div>
-          <div class="visite__bloco revela">
-            <h3>Antes de vir</h3>
-            <ul class="marcadores">
-              <li>A comunidade é aberta a quem quiser conhecer e assistir aos trabalhos.</li>
-              <li>Para participar, é preciso conversar antes com o dirigente e passar pelo acompanhamento da casa.</li>
-              <li>No espaço não se bebe, não se fuma e não se usa drogas.</li>
-              <li>Fotos e filmagens só com autorização. A privacidade de quem frequenta vem em primeiro lugar.</li>
-            </ul>
+        <div class="visite__mapa revela">
+          <svg class="mapa" viewBox="0 0 400 300" aria-hidden="true">
+            <rect width="400" height="300" fill="#f3e7d3"/>
+            <path d="M-10 210C80 190 140 230 220 200s140-60 200-50" fill="none" stroke="#e2cfae" stroke-width="22" stroke-linecap="round"/>
+            <path d="M-10 210C80 190 140 230 220 200s140-60 200-50" fill="none" stroke="#fbf6ec" stroke-width="2" stroke-dasharray="10 10"/>
+            <path d="M120 -10c10 80 40 130 30 320" fill="none" stroke="#e2cfae" stroke-width="10"/>
+            <path d="M260 -10c-20 70 10 120 60 160" fill="none" stroke="#e2cfae" stroke-width="8"/>
+            <circle cx="70" cy="80" r="26" fill="#c9d3ac"/><circle cx="330" cy="250" r="34" fill="#c9d3ac"/><circle cx="355" cy="60" r="20" fill="#c9d3ac"/>
+            <path d="M196 70c-23 0-38 17-38 37 0 28 38 64 38 64s38-36 38-64c0-20-15-37-38-37z" fill="#b5582f"/>
+            <circle cx="196" cy="106" r="13" fill="#fbf6ec"/>
+            <text x="196" y="200" text-anchor="middle" font-family="Figtree, sans-serif" font-size="13" font-weight="700" fill="#2a2622" letter-spacing="1.5">RODOVIA 135</text>
+          </svg>
+          <div class="visite__endereco">
+            <h3>Chácara Divina Luz</h3>
+            <address>Rodovia 135, 3580 · Nova Londrina<br>Ji-Paraná, RO · CEP 76915-500</address>
+            <a class="botao" href="https://www.google.com/maps/search/?api=1&amp;query=Ch%C3%A1cara+Divina+Luz+Ji-Paran%C3%A1" target="_blank" rel="noopener">Abrir no mapa <svg><use href="#i-seta"/></svg></a>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- 8. Projeto de extensão -->
-    <section class="secao secao--areia secao--curta" id="projeto">
-      <div class="container projeto revela">
-        <p class="sobretitulo">Sobre este site</p>
-        <p class="projeto__texto">Este site foi feito em parceria com a comunidade, como parte do Projeto de Extensão <strong>Culturas, Memórias e Diversidades</strong>, do curso de Análise e Desenvolvimento de Sistemas da Universidade Anhembi Morumbi. O conteúdo passa pela aprovação da direção do centro antes de ser publicado. Nenhum hino é reproduzido, e só aparecem pessoas que autorizaram o uso da própria imagem.</p>
+        <div class="visite__regras">
+          <header class="revela">
+            <p class="sobretitulo">Visite</p>
+            <h2>Antes de <em>vir</em></h2>
+          </header>
+          <ol class="regras">
+            <li class="revela"><span>01</span><p>A comunidade é aberta a quem quiser conhecer e assistir aos trabalhos.</p></li>
+            <li class="revela"><span>02</span><p>Para participar, é preciso conversar antes com o dirigente e passar pelo acompanhamento da casa.</p></li>
+            <li class="revela"><span>03</span><p>No espaço não se bebe, não se fuma e não se usa drogas.</p></li>
+            <li class="revela"><span>04</span><p>Fotos e filmagens só com autorização. A privacidade de quem frequenta vem em primeiro lugar.</p></li>
+          </ol>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="rodape">
+    <svg class="rodape__horizonte" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 80V40c200-30 420 10 720-6s520-34 720-4v50z" fill="#24382b"/>
+    </svg>
     <div class="container rodape__inner">
-      <div>
-        <strong>Chácara Divina Luz</strong>
-        <p>Centro de Regeneração Espiritual Casa de Jesus e Lar de Frei Manuel · Ji-Paraná, Rondônia · Desde 1991</p>
+      <div class="rodape__marca">
+        <span class="marca__selo"><svg><use href="#i-sol"/></svg></span>
+        <div>
+          <strong>Chácara Divina Luz</strong>
+          <p>Centro de Regeneração Espiritual Casa de Jesus e Lar de Frei Manuel<br>Ji-Paraná, Rondônia · Desde 1991</p>
+        </div>
       </div>
-      <div class="rodape__direita">
-        <p>Projeto de Extensão · Análise e Desenvolvimento de Sistemas · 2026</p>
-        <a href="#inicio">Voltar ao topo</a>
+      <p class="rodape__projeto">Site feito em parceria com a comunidade, como parte do Projeto de Extensão <strong>Culturas, Memórias e Diversidades</strong>, do curso de Análise e Desenvolvimento de Sistemas da Universidade Anhembi Morumbi. O conteúdo passa pela aprovação da direção do centro antes de ser publicado. Nenhum hino é reproduzido, e só aparecem pessoas que autorizaram o uso da própria imagem.</p>
+      <div class="rodape__base">
+        <span>© 2026 Chácara Divina Luz</span>
+        <a href="#inicio">Voltar ao topo <svg><use href="#i-seta"/></svg></a>
       </div>
     </div>
   </footer>
 
   <div class="ampliar" role="dialog" aria-modal="true" aria-label="Foto ampliada" hidden>
     <button class="ampliar__fechar" aria-label="Fechar">Fechar</button>
-    <button class="ampliar__seta ampliar__seta--ant" aria-label="Foto anterior">&larr;</button>
+    <button class="ampliar__seta ampliar__seta--ant" aria-label="Foto anterior"><svg><use href="#i-seta"/></svg></button>
     <figure>
       <img alt="">
       <figcaption></figcaption>
     </figure>
-    <button class="ampliar__seta ampliar__seta--prox" aria-label="Próxima foto">&rarr;</button>
+    <button class="ampliar__seta ampliar__seta--prox" aria-label="Próxima foto"><svg><use href="#i-seta"/></svg></button>
   </div>
 
   <script src="js/main.js"></script>
