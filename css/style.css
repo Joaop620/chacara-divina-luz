@@ -197,7 +197,41 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 .tempo p { color: rgba(235, 231, 217, 0.82); }
 .tempo li:hover .tempo__ano { color: var(--sol); }
 
-/* III. A ajuda */
+/* III. As raízes (Mestre Irineu) */
+.capitulo--raizes { background: var(--papel-claro); }
+.raizes { display: grid; grid-template-columns: repeat(12, 1fr); gap: 3rem 2rem; align-items: start; }
+.raizes__abertura { grid-column: 2 / span 10; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: end; padding-bottom: 2.5rem; border-bottom: 1px solid var(--regra); }
+.raizes__chamada { font-size: clamp(1.375rem, 2.2vw, 1.75rem); line-height: 1.35; max-width: 30ch; }
+.raizes__nome {
+  font-family: var(--titulo); font-weight: 600; font-variation-settings: "opsz" 96;
+  font-size: clamp(2.5rem, 5.2vw, 4.75rem); line-height: 0.95; letter-spacing: -0.022em; text-align: right;
+}
+.raizes__nome span {
+  display: block; margin-top: 0.875rem; font-family: var(--mono); font-weight: 400; font-size: 0.8125rem;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--folha);
+}
+.raizes__ficha { grid-column: 2 / span 3; position: sticky; top: 5rem; padding: 1.5rem; background: var(--mata); color: var(--papel); }
+.raizes__ficha h3 { font-family: var(--titulo); font-weight: 600; font-size: 1.375rem; margin-bottom: 1rem; }
+.raizes__ficha::before { content: ""; display: block; width: 2.25rem; height: 2.25rem; border-radius: 50%; background: var(--sol); margin-bottom: 1.25rem; }
+.raizes__ficha dl { margin: 0; display: grid; gap: 1rem; }
+.raizes__ficha dt { font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sol); }
+.raizes__ficha dd { margin: 0.25rem 0 0; font-size: 0.9375rem; line-height: 1.5; color: rgba(235, 231, 217, 0.88); }
+.raizes__linha { grid-column: 6 / span 6; list-style: none; margin: 0; padding: 0; position: relative; }
+.raizes__linha::before { content: ""; position: absolute; left: 0.4375rem; top: 0.75rem; bottom: 0.75rem; width: 1px; background: linear-gradient(var(--folha), rgba(77, 107, 58, 0.15)); }
+.raizes__linha li { position: relative; display: grid; grid-template-columns: 9rem 1fr; gap: 1.25rem; padding: 0 0 2.25rem 2.25rem; }
+.raizes__linha li::before {
+  content: ""; position: absolute; left: 0; top: 0.55rem; width: 0.875rem; height: 0.875rem; border-radius: 50%;
+  background: var(--papel-claro); border: 2px solid var(--folha);
+}
+.raizes__linha li:last-child::before { background: var(--sol); border-color: var(--mata); }
+.raizes__ano { font-family: var(--titulo); font-weight: 500; font-size: 2.25rem; line-height: 1; letter-spacing: -0.02em; color: var(--tinta); }
+.raizes__ano--texto { font-size: 1.125rem; line-height: 1.25; color: var(--folha); padding-top: 0.4rem; }
+.raizes__linha h3 { font-family: var(--titulo); font-weight: 600; font-size: 1.25rem; margin-bottom: 0.375rem; }
+.raizes__linha p { font-size: 1.0625rem; color: var(--tinta-2); line-height: 1.55; }
+.raizes__fontes { grid-column: 6 / span 6; font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.02em; color: var(--tinta-2); padding-left: 2.25rem; }
+.raizes__fontes a { color: var(--folha); }
+
+/* IV. A ajuda */
 .frase { margin: 0 0 clamp(3rem, 7vw, 6rem); padding-left: calc((100% - 11 * 2rem) / 12 + 2rem); }
 .frase p {
   font-family: var(--titulo); font-weight: 500; font-variation-settings: "opsz" 96; font-size: clamp(2.5rem, 6vw, 5.75rem); line-height: 1; letter-spacing: -0.02em;
@@ -215,7 +249,7 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 .ajuda__lista h3 { font-family: var(--titulo); font-weight: 600; font-size: 1.5rem; line-height: 1.15; letter-spacing: -0.015em; }
 .ajuda__lista p { font-size: 1.0625rem; margin-top: 0.25rem; color: rgba(235, 231, 217, 0.82); }
 
-/* IV. O lugar */
+/* V. O lugar */
 .pranchas { display: grid; grid-template-columns: repeat(12, 1fr); gap: 3rem 2rem; align-items: start; }
 .foto { margin: 0; cursor: zoom-in; }
 .foto__img { position: relative; overflow: hidden; background: var(--papel-claro); outline: 1px solid var(--regra); }
@@ -245,7 +279,7 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
     repeating-linear-gradient(-45deg, transparent 0 9px, rgba(22, 20, 18, 0.16) 9px 10px);
 }
 
-/* V. A visita */
+/* VI. A visita */
 .capitulo--visita { border-top: 6px solid var(--tinta); }
 .visita { display: grid; grid-template-columns: repeat(12, 1fr); gap: 2.5rem 2rem; align-items: end; }
 .visita__endereco { grid-column: 2 / span 6; font-style: normal; display: grid; gap: 1.25rem; }
@@ -439,6 +473,11 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   .tempo__ano { grid-column: 1; }
   .tempo li > div { grid-column: 2; }
   .menu { gap: 1rem; }
+  .raizes__abertura { grid-column: 1 / -1; }
+  .raizes__ficha { grid-column: 1 / span 4; }
+  .raizes__linha { grid-column: 5 / span 8; }
+  .raizes__fontes { grid-column: 5 / span 8; }
+  .raizes__linha li { grid-template-columns: 1fr; gap: 0.5rem; }
 }
 
 @media (max-width: 760px) {
@@ -473,7 +512,12 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   .capa__grade { grid-template-columns: 1fr auto; }
   .capa__nome { grid-column: 1 / -1; }
   .capitulo__cab { grid-template-columns: 1fr; }
-  .casa, .ajuda, .visita { grid-template-columns: 1fr; }
+  .casa, .ajuda, .visita, .raizes { grid-template-columns: 1fr; }
+  .raizes > * { grid-column: 1 / -1 !important; }
+  .raizes__abertura { grid-template-columns: 1fr; }
+  .raizes__nome { text-align: left; }
+  .raizes__ficha { position: static; }
+  .raizes__fontes { padding-left: 0; }
   .casa > *, .ajuda > *, .visita > * { grid-column: 1 / -1 !important; margin-top: 0 !important; }
   .pranchas { grid-template-columns: 1fr 1fr; gap: 1.5rem 1rem; }
   .pranchas > .foto { grid-column: span 1; margin-top: 0; }
