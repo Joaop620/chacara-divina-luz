@@ -1,0 +1,14 @@
+{
+  "name": "Casa de Jesus e Lar de Frei Manuel",
+  "short_name": "Casa de Jesus",
+  "description": "Centro de Regeneração Espiritual Casa de Jesus e Lar de Frei Manuel, na Chácara Divina Luz, em Ji-Paraná.",
+  "lang": "pt-BR",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ebe7d9",
+  "theme_color": "#22342a",
+  "icons": [
+    { "src": "assets/img/icone-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/img/icone-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
