@@ -12,15 +12,29 @@ O site faz parte do Projeto de Extensão **Culturas, Memórias e Diversidades**,
 chacara-divina-luz/
 ├── index.html            Página única com todas as seções
 ├── css/style.css         Estilos
-├── js/main.js            Menu, animações, vídeo e galeria de fotos
+├── js/main.js            Interações do site
+├── sw.js                 Service worker (site abre sem internet depois da 1ª visita)
+├── manifest.webmanifest  Permite instalar o site no celular como aplicativo
 ├── assets/
 │   ├── video/            fernando.mp4 e capa.jpg
 │   ├── fotos/            foto-1.jpg até foto-6.jpg
-│   └── img/              favicon e imagem de compartilhamento
-└── vercel.json           Configuração de cache para a Vercel
+│   └── img/              favicon, ícones, samambaia e imagem de compartilhamento
+└── vercel.json           Cabeçalhos de cache e segurança para a Vercel
 ```
 
-É um site estático, sem dependências e sem etapa de build. Basta abrir o `index.html` no navegador.
+É um site estático, sem dependências e sem etapa de build. Para testar no computador, rode `python3 -m http.server` dentro da pasta e abra http://localhost:8000.
+
+## Funcionalidades
+
+- Barra de progresso da leitura e destaque do capítulo atual no menu
+- Números da comunidade que contam ao aparecer na tela
+- Mapa do Google que só carrega quando a pessoa clica (página mais leve e sem rastreio desnecessário)
+- Botões para traçar rota, copiar o endereço e compartilhar o site (no celular abre o menu de compartilhar do próprio aparelho)
+- Galeria com ampliação, navegação pelo teclado e deslizar com o dedo no celular
+- Funciona sem internet depois da primeira visita e pode ser instalado na tela inicial do celular (PWA)
+- Dados estruturados (schema.org) para o Google entender que é um centro religioso, com endereço e data de fundação
+- Imagem própria para quando o link é enviado no WhatsApp e nas redes
+- Respeita quem prefere menos movimento na tela (prefers-reduced-motion)
 
 ## Como colocar o vídeo e as fotos
 
@@ -42,7 +56,11 @@ Enquanto a foto não existir, o espaço aparece hachurado com o aviso "Foto a ca
 
 **Imagem de compartilhamento**
 
-Salve uma foto de 1200 x 630 px como `assets/img/compartilhamento.jpg`. Ela aparece quando o link é enviado no WhatsApp ou nas redes.
+Já existe uma em `assets/img/compartilhamento.jpg` (1200 x 630 px). Se quiser trocar por uma foto da Chácara, salve com o mesmo nome e tamanho.
+
+## Quando mudar arquivos
+
+Ao alterar CSS ou JavaScript, troque a versão em `sw.js` (por exemplo, `divina-luz-v1` para `divina-luz-v2`). Assim quem já visitou o site recebe a versão nova.
 
 ## Antes de publicar
 
