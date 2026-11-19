@@ -108,6 +108,13 @@
   // ---------- Vídeo: aviso "em gravação" enquanto o arquivo não existir ----------
   var video = document.getElementById("video-fernando");
   var caixaVideo = video.closest(".video");
+  // Só usa a capa se o arquivo existir (evita erro no navegador enquanto ela não chega)
+  var capa = video.getAttribute("data-poster");
+  if (capa) {
+    var testeCapa = new Image();
+    testeCapa.onload = function () { video.setAttribute("poster", capa); };
+    testeCapa.src = capa;
+  }
   var fonte = video.querySelector("source");
   function semVideo() { caixaVideo.classList.add("sem-video"); }
   fonte.addEventListener("error", semVideo);
@@ -211,7 +218,7 @@
 
     if (window.matchMedia("(max-width: 760px)").matches) {
       // No celular a tela é vertical: enquadra o eixo da BR-364 e deixa Ji-Paraná no terço de cima
-      cenas["2"] = [1600, 3790, 1420, 1420];
+      cenas["2"] = [1600, 3700, 1420, 1500];
       cenas["3"] = [alvoX - 46, alvoY - 48, 124, 150];
     }
 
