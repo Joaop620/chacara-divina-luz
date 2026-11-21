@@ -29,7 +29,7 @@ chacara-divina-luz/
 - Barra de progresso da leitura e destaque do capítulo atual no menu
 - Números da comunidade que contam ao aparecer na tela
 - Mapa animado feito em SVG, sem serviço externo: começa no Brasil, aproxima em Rondônia (BR-364, Rio Machado e as cidades de onde vêm as famílias) e termina em Ji-Paraná com o cartão do endereço. Tem etapas clicáveis e botão para ver de novo. O contorno dos estados vem do pacote @highcharts/map-collection e as cidades foram posicionadas pelas coordenadas reais
-- Botões para traçar rota, copiar o endereço e compartilhar o site (no celular abre o menu de compartilhar do próprio aparelho)
+- Botões para traçar rota e copiar o endereço
 - Galeria com ampliação, navegação pelo teclado e deslizar com o dedo no celular
 - Funciona sem internet depois da primeira visita e pode ser instalado na tela inicial do celular (PWA)
 - Dados estruturados (schema.org) para o Google entender que é um centro religioso, com endereço e data de fundação
@@ -60,7 +60,21 @@ Já existe uma em `assets/img/compartilhamento.jpg` (1200 x 630 px). Se quiser t
 
 ## Quando mudar arquivos
 
-Ao alterar CSS ou JavaScript, aumente o número `?v=` nos links do `index.html` (`css/style.css?v=6`, `js/main.js?v=6`) e a versão em `sw.js`. O service worker busca sempre a rede primeiro e só usa a cópia guardada quando não há internet, então quem já visitou o site recebe a versão nova sem misturar arquivos.
+Ao alterar CSS ou JavaScript, aumente o número `?v=` nos links do `index.html` (`css/style.css?v=7`, `js/main.js?v=7`) e a versão em `sw.js`. O service worker busca sempre a rede primeiro e só usa a cópia guardada quando não há internet, então quem já visitou o site recebe a versão nova sem misturar arquivos.
+
+## Chave de acesso
+
+O site fica fechado por padrão. Quem abre o link vê uma página pedindo a senha da Irmandade, e só depois de digitá-la entra no site (o acesso fica lembrado no aparelho por 30 dias).
+
+A chave fica em duas variáveis de ambiente na Vercel (Settings > Environment Variables):
+
+| Variável | Valor | Efeito |
+| --- | --- | --- |
+| `SITE_ABERTO` | `nao` | Site fechado, pede senha |
+| `SITE_ABERTO` | `sim` | Site aberto a todos (por exemplo, para divulgar um evento) |
+| `SENHA_IRMANDADE` | a senha | Senha usada na página de acesso |
+
+Depois de mudar qualquer uma delas, é preciso fazer um Redeploy em Deployments. A lógica fica em `middleware.js`. A senha nunca vai para o GitHub.
 
 ## Antes de publicar
 
