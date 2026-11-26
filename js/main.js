@@ -105,21 +105,16 @@
     requestAnimationFrame(passo);
   }
 
-  // ---------- Vídeo: aviso "em gravação" enquanto o arquivo não existir ----------
+  // ---------- Vídeo: só age se houver um <video> na página ----------
   var video = document.getElementById("video-fernando");
-  var caixaVideo = video.closest(".video");
-  // Só usa a capa se o arquivo existir (evita erro no navegador enquanto ela não chega)
-  var capa = video.getAttribute("data-poster");
-  if (capa) {
-    var testeCapa = new Image();
-    testeCapa.onload = function () { video.setAttribute("poster", capa); };
-    testeCapa.src = capa;
+  if (video) {
+    var caixaVideo = video.closest(".video");
+    var fonte = video.querySelector("source");
+    var semVideo = function () { caixaVideo.classList.add("sem-video"); };
+    if (fonte) fonte.addEventListener("error", semVideo);
+    video.addEventListener("error", semVideo);
+    if (video.networkState === HTMLMediaElement.NETWORK_NO_SOURCE) semVideo();
   }
-  var fonte = video.querySelector("source");
-  function semVideo() { caixaVideo.classList.add("sem-video"); }
-  fonte.addEventListener("error", semVideo);
-  video.addEventListener("error", semVideo);
-  if (video.networkState === HTMLMediaElement.NETWORK_NO_SOURCE) semVideo();
 
   // ---------- Galeria: espaço reservado enquanto a foto não existir ----------
   var itens = Array.prototype.slice.call(document.querySelectorAll(".foto"));

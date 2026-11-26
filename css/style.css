@@ -152,7 +152,7 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 }
 .video { grid-column: 7 / span 6; margin: 0; }
 .video__quadro { position: relative; aspect-ratio: 4 / 5; background: var(--mata); overflow: hidden; }
-.video video { width: 100%; height: 100%; object-fit: contain; }
+.video video, .video__quadro img { width: 100%; height: 100%; object-fit: cover; }
 .video__aguardando {
   display: none; position: absolute; inset: 0; align-items: center; justify-content: center;
   background: var(--mata);

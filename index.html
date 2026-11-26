@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=9">
+  <link rel="stylesheet" href="css/style.css?v=10">
 </head>
 <body>
   <a class="pular" href="#cap-1">Pular para o conteúdo</a>
@@ -80,20 +80,11 @@
         </div>
 
         <figure class="video revela" id="video">
-          <!--
-            Para trocar o vídeo: salve o arquivo como assets/video/fernando.mp4
-            e, se quiser, uma imagem de capa em assets/video/capa.jpg.
-          -->
+          <!-- Quando houver vídeo do dirigente, troque a imagem por um video com assets/video/fernando.mp4. -->
           <div class="video__quadro">
-            <video id="video-fernando" controls preload="metadata" playsinline data-poster="assets/video/capa.jpg">
-              <source src="assets/video/fernando.mp4" type="video/mp4">
-            </video>
-            <div class="video__aguardando" aria-hidden="true">
-              <span class="video__sol"></span>
-              <span class="video__aviso">Em gravação</span>
-            </div>
+            <img src="assets/img/casa.jpg" alt="Quiosque coberto de palha da Chácara Divina Luz, à noite, visto do caminho de pedras" loading="lazy">
           </div>
-          <figcaption><span>Vídeo</span> Fernando, dirigente do centro, apresenta a Chácara Divina Luz.</figcaption>
+          <figcaption><span>Chácara</span> O quiosque de palha e a roda de troncos, à noite.</figcaption>
         </figure>
 
         <dl class="registro revela">
@@ -337,6 +328,6 @@
     "url": "https://chacara-divina-luz.vercel.app"
   }
   </script>
-  <script src="js/main.js?v=9" defer></script>
+  <script src="js/main.js?v=10" defer></script>
 </body>
 </html>
